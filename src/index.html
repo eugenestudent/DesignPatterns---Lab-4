@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Переводчик чисел</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <h1 class="title">Переводчик чисел c/на английский ⸜( ´ ꒳ ` )⸝	</h1>
+    <div class="tooltip">Введите числа от 1 до 9 (цифрами или словами, через пробел или слитно)</div>
+    <input id="input" class="input-bar" placeholder="Введите здесь..." />
+    <button id="translateBtn" class="translate-button">Перевести</button>
+    <button id="editBtn" class="secondary-button hidden">Редактировать</button>
+    <button id="resetBtn" class="secondary-button hidden">Очистить</button>
+
+    <div id="result" class="result"></div>
+  </div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>
