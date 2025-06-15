@@ -37,16 +37,22 @@ export class WordToNumberInterpreter implements Expression {
   }
 
   private tokenize(input: string): string[] {
-  const words = Object.keys(this.mapping.wordToNum);
+  const words = Object.keys(this.mapping.wordToNum).sort((a, b) => b.length - a.length); // длинные сначала
   const tokens: string[] = [];
 
-  let str = input;
+  let str = input.trim().toLowerCase();
 
   while (str.length > 0) {
+    if (str[0] === ' ') {
+      str = str.slice(1);
+      continue;
+    }
+
     let matchedWord = "";
     for (const word of words) {
-      if (str.startsWith(word) && word.length > matchedWord.length) {
+      if (str.startsWith(word)) {
         matchedWord = word;
+        break;
       }
     }
 
@@ -55,7 +61,7 @@ export class WordToNumberInterpreter implements Expression {
       str = str.slice(matchedWord.length);
     } else {
       tokens.push("error");
-      str = str.slice(1);
+      break
     }
   }
 
